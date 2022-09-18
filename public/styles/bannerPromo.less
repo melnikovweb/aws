@@ -1,0 +1,159 @@
+.banner-promo {
+  background-color: #0142e9;
+  background-size: contain;
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &--medium {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  &--large {
+    padding-top: 75px;
+    padding-bottom: 75px;
+  }
+
+  &--with-bg-image {
+    background-image: url("data:image/svg+xml,%3Csvg width='330' height='231' viewBox='0 0 330 231' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M142.5 1L62.345 64.497L165.849 142.477V195.932L10.2584 82.7961C4.4425 78.498 1 71.7103 1 64.497C1 57.2838 4.4425 50.4961 10.2584 46.198L73 1.00007M261 230.114L319.742 186.986C325.558 182.688 329 175.9 329 168.687C329 161.473 325.558 154.686 319.742 150.388L164.033 38.1136V89.0227L267.655 168.687L181 230.114' stroke='%233989FB' stroke-width='2'/%3E%3C/svg%3E%0A");
+    background-repeat: no-repeat;
+    background-position: 80% center;
+    background-size: contain;
+  }
+  &--with-full-bg-image {
+    position: relative;
+    border-radius: 10px;
+    &::before {
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      background: url("/static/banner-mask.png") repeat 0 center;
+      top: 0;
+      left: 0;
+      opacity: 0.1;
+    }
+  }
+  &--with-full-bg-image &__container {
+    padding: 0 40px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+
+    &--wide {
+      max-width: 1516px;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+
+  &__logo {
+    color: #f9f9f9;
+    margin-right: 40px;
+    flex: 0 0 auto;
+    width: 77px;
+    height: 70px;
+
+    path[fill] {
+      fill: currentColor;
+    }
+
+    path[stroke] {
+      stroke: currentColor;
+    }
+  }
+
+  &__text {
+    flex: 1 1 auto;
+    color: #f9f9f9;
+    font-size: 24px;
+    line-height: 150%;
+    letter-spacing: 0.04em;
+    font-weight: normal;
+
+    strong {
+      font-weight: 600;
+    }
+
+    &--medium {
+      font-size: 32px;
+    }
+
+    &--large {
+      font-size: 36px;
+    }
+  }
+
+  &__action {
+    flex: 0 0 auto;
+    margin-left: 20px;
+    background-color: #1f232e;
+    color: #fff;
+    border-color: #1f232e;
+
+    &:hover,
+    &:active,
+    &.is-active {
+      border-color: #1f232e;
+    }
+
+    &:disabled {
+      color: #fff;
+      opacity: 0.7;
+
+      &,
+      &:hover,
+      &:active,
+      &.is-active {
+        color: #fff;
+        border-width: 2px;
+        border-color: #444b5e;
+        background-color: #444b5e;
+      }
+    }
+  }
+
+  &__action-icon {
+    color: inherit;
+    width: 24px;
+    height: 24px;
+    margin-left: 20px;
+    flex: 0 0 auto;
+
+    path[fill] {
+      fill: currentColor;
+    }
+
+    path[stroke] {
+      stroke: currentColor;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    &__container {
+      flex-direction: column;
+    }
+
+    &__logo {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    &__text {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    &__action {
+      margin-left: auto;
+      margin-top: 20px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+}

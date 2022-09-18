@@ -1,0 +1,156 @@
+.what-you-get {
+  padding-top: 60px;
+  padding-bottom: 60px;
+
+  &__title,
+  &__sub-title {
+    color: #f9f9f9;
+    margin-bottom: 30px;
+    line-height: 150%;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 36px;
+    letter-spacing: 0.04em;
+    text-transform: initial;
+  }
+
+  &__sub-title {
+    font-weight: 300;
+    font-size: 16px;
+  }
+}
+
+.what-you-get-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.what-you-get-item {
+  padding: 30px;
+  display: flex;
+  background-color: #1f232e;
+  border-radius: 10px;
+  width: calc(50% - 20px);
+  box-sizing: border-box;
+  margin-bottom: 30px;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    flex-direction: column;
+
+    &__icon {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__icon {
+    color: #0069ff;
+    margin-right: 30px;
+    flex: 0 0 auto;
+    align-self: flex-start;
+    width: 60px;
+    height: auto;
+
+    path[fill] {
+      fill: currentColor;
+    }
+
+    path[stroke] {
+      stroke: currentColor;
+    }
+  }
+
+  &__content {
+    flex: 1 1 auto;
+  }
+
+  /*&__icon + &__content { //conflict with :global
+    .what-you-get-item-content__title {
+      color: #f9f9f9;
+    }
+  }*/
+}
+.what-you-get-item__icon + .what-you-get-item__content {
+  .what-you-get-item-content__title {
+    color: #f9f9f9;
+  }
+}
+
+.what-you-get-item-content {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 28px;
+    letter-spacing: 0.04em;
+    color: #0069ff;
+    white-space: pre-line;
+  }
+
+  &__additional {
+    flex: 1 1 auto;
+    font-size: 18px;
+    font-weight: normal;
+    line-height: 150%;
+    letter-spacing: 0.03em;
+    color: #f9f9f9;
+    margin-top: 30px;
+    white-space: pre-line;
+  }
+
+  &__description {
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 150%;
+    color: #f9f9f9;
+    padding-top: 14px;
+    margin-top: 14px;
+    white-space: pre-line;
+  }
+}
+
+.what-you-get-item-description-li {
+  display: list-item;
+  list-style: none;
+  padding-left: 20px;
+  position: relative;
+
+  &:before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    top: 9px;
+    left: 10px;
+    border-radius: 50%;
+    background-color: currentColor;
+  }
+
+  &--marker-big {
+    padding-left: 24px;
+
+    &:before {
+      width: 14px;
+      height: 14px;
+      top: 5px;
+      left: 0;
+    }
+  }
+
+  &--marker-blue {
+    &:before {
+      background-color: #0069ff;
+    }
+  }
+
+  &--marker-red {
+    &:before {
+      background-color: #ff4c00;
+    }
+  }
+}

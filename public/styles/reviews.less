@@ -1,0 +1,125 @@
+.review-box {
+  box-sizing: border-box;
+  position: relative;
+  padding: 0 10px;
+  &__pic {
+    margin-bottom: -45px;
+  }
+}
+
+.review {
+  padding: 70px 50px;
+
+  text-align: center;
+  background: #292e3d;
+
+  box-shadow: 0px 0px 20px rgba(15, 20, 32, 0.6);
+  border-radius: 6px;
+  &__title {
+    margin-bottom: 8px;
+  }
+  &__description {
+    margin-bottom: 8px;
+  }
+  &__blockquote {
+    padding: 20px 0;
+
+    font-style: italic;
+    font-weight: 200;
+    font-size: 18px;
+    line-height: 1.6;
+    text-align: center;
+  }
+  &__icon {
+    position: absolute;
+    left: 50%;
+    bottom: 50px;
+    width: 72px;
+    height: 80px;
+
+    display: block;
+    opacity: 0;
+    fill: #0169ff;
+
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+    transform: translate(-50%, 50%);
+    .swiper-slide-active & {
+      opacity: 1;
+    }
+  }
+
+  &__location {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+  }
+  &__flag {
+    margin-right: 10px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.review-media {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100px;
+  height: 100px;
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: inherit;
+  }
+}
+
+.reviews {
+  &__header {
+    margin-bottom: 30px;
+  }
+  .swiper-wrapper {
+    padding-bottom: 60px;
+    .swiper-slide {
+      padding-bottom: 50px;
+      transition-duration: 0.3s;
+      transition-timing-function: ease-in-out;
+      transform: scale(0.8);
+      opacity: 0.7;
+      &.swiper-slide-active {
+        transform: scale(1);
+        .review__icon {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.swiper-pagination {
+  margin: 40px 0 10px;
+  text-align: center;
+  font-size: 0;
+  line-height: 0;
+
+  span.swiper-pagination-bullet {
+    display: inline-block;
+    margin: 5px 15px !important;
+    opacity: 1;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    font-size: 0;
+    line-height: 0;
+    border: 0;
+    background: #444b5e;
+    cursor: pointer;
+    &.swiper-pagination-bullet-active {
+      background: linear-gradient(180deg, #01aaff 0%, #0169ff 100%);
+    }
+  }
+}

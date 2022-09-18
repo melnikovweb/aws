@@ -1,70 +1,147 @@
-# Getting Started with Create React App
+# Binerals
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Структура и данные
 
-## Available Scripts
+Структура проекта определенна согдасно рекомендациям next.js
+Основные деректории и соглашения
 
-In the project directory, you can run:
-### `npm`
-### `npm start`
+- `components` - React компоненты (!! components/Icons автогенирируемая, смотри раздел Иконки)
+- `datastore` - папка с конфигами для компонентов, при переходе на запрос данных с рервера может быть полностью удалена.
+  соглашения по именованию файлов `<Имя_Компонента>_<описание>`
+- `layouts` - React компоненты реализовывающие функционал layout-ов
+- `lib` - утилиты и библиотеки необходимы для работы приложения
+- `pages` - основаня папка с роутигром
+- `public` - папка с публичными рессурсами
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Лейаут
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+По умолчанию все страницы грузятся в `DefaultAppLayout`, он обеспечивает отрисовку базовых элементов таких как хедер и футер на каждой из страниц.
+В случае если лейаут по умолчанию не подходит его всегда можно заменить своим кастомынм. Для этого достаточно поисать свой лейаут по анолоигии с дефолтным, и прописать его как свойство наужной страницы
 
-### `npm test`
+```js
+import MyCustomLayout from "layouts/MyCustomLayout"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+const MyPage = (props)  => { ... }
 
-### `npm run build`
+MyPage.layout = MyCustomLayout
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+export default MyPage
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Попапы
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Работа с попапами очень схожа с работой лейаутов.
 
-### `npm run eject`
+> **Важно!** Все попапы находятся в папке `components/Popup`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Сигнатура попап компонета
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```js
+import PopupLayout from "layouts/PopupLayout"
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+const MyComponent = (props) => { ... }
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+const MyComponentPopup = ({ isShown, onClose }) => (
+  <PopupLayout isVisible={isShown} closePopup={onClose}>
+    <MyComponent />
+  </PopupLayout>
+)
 
-## Learn More
+export default MyComponentPopup
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`PopupLayout` не имеет своего внутренего состояни, потому ему требуется пропсы состояния из внешнего компонента
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```js
+import { useState } from "react";
 
-### Code Splitting
+import PopupLayout from "components/Popup/MyComponentPopup";
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+const MyPage = (props) => {
+  const [isShowPopup, useIsShowPopup] = useState(false);
 
-### Analyzing the Bundle Size
+  return (
+    <>
+      <input type="button" onClick={() => useIsShowPopup(true)}>
+        Open Popup
+      </input>
+      <PopupBecomePartner
+        isShown={isShowPopup}
+        onClose={() => {
+          useIsShowPopup(false);
+        }}
+      />
+    </>
+  );
+};
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+export default MyPage;
+```
 
-### Making a Progressive Web App
+## Иконки
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Все иконки предоставляются через компонент `Icons`. Для доступа к ним достаточно импортировать необходимую иконку и использовать ее как компонент
 
-### Advanced Configuration
+```jsx
+import Icons from "components/Icons";
+// так же альтернативно:
+// import GitHub from "components/Icons/GitHub"
+// import {GitHub} from "components/Icons"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+const MyComponent = (props) => {
+  return <Icons.GitHub />;
+};
+```
 
-### Deployment
+> **Важно!** по умолчанию все иконки имеют размер `{width: 1em, height: 1em}` переопределить размры можно переопределение `width` и `height`:
+>
+> ```jsx
+> <GitHub width={50} height={50} />
+> ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Попонение коллекции иконок
 
-### `npm run build` fails to minify
+Все исходники иконок хранятся в `public/Icons/` что дает возможность использовать их как изображения `.svg`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```js
+<img src="/Icons/GinHub.svg" />
+```
+
+На основании этих иконок формируются соответствующие jsx компоненты **автоматически!** Для этого, после добавления/изминения/удаления иконки запкстить в консоле скрипт
+
+```sh
+$ yarn icon-update
+```
+
+> **Важно!** Вложенные папки в `public/icons` будут вормировать вложенные компоненты для `Icons`.
+> Также в момент автоматической генирации иконок файлы переименовуются в "кемел-кэйс"
+>
+> ```jsx
+> import Icons from "components/Icons";
+> import TechnologyIcons from "components/Icons/technology";
+> ```
+>
+> Детальнее про автогенирацию https://react-svgr.com
+
+## Сборка и деплоймент
+
+Для сборки приложения в режиме `prod`
+
+```sh
+yarn build
+```
+
+После выполнения сборки, next.js сформирует отчет по каждой странице, по нему удобно анализировать размеры и быстродействие разных страниц
+
+```sh
+                          Size     First Load JS
+ ● / (ISR: 3600 Seconds)  11.3 kB         119 kB
+```
+
+здесь вы можете контролировать тип страницы
+
+λ - страница с SSR, самые медленные страницы, так как при заждом запросе на сервере будет проходить рендеринг
+
+● - страницы с SSG, это страницы которые закешированы но используют динмические данные, могут иметь параметр ISR - это время в секундах как часто эти странцы будут обновляться на сервере
+
+○ - статические страницы, это самые быстрые страницы так как они отдаются на клиет как сформированный статический файл из кеша

@@ -1,0 +1,34 @@
+.divider {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 0;
+    height: 1px;
+    width: 60px;
+    background: #0069ff;
+  }
+
+  &--top {
+    &:before {
+      content: "";
+      top: 0;
+    }
+  }
+
+  &--bottom {
+    &:after {
+      content: "";
+      bottom: 0;
+    }
+  }
+
+  &--center {
+    &:before,
+    &:after {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

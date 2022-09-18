@@ -1,0 +1,149 @@
+.service {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 40px 0;
+  font-size: 14px;
+  color: #f9f9f9;
+  border-bottom: 1px solid #444b5e;
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+
+  &__icon {
+    flex-shrink: 0;
+
+    margin-right: 28px;
+    width: 60px;
+
+    svg {
+      width: 60px;
+      height: 60px;
+    }
+
+    fill: #0073e8;
+    stroke: #0073e8;
+  }
+
+  &__content {
+    margin-bottom: 18px;
+    line-height: 1.6;
+  }
+
+  &__title {
+    text-transform: uppercase;
+    flex-grow: 1;
+  }
+  &__other-link {
+    display: inline-block;
+    margin-top: 40px;
+    text-decoration: none;
+    color: #0069ff;
+  }
+}
+
+.service-parts {
+  list-style: none;
+  font-size: 14px;
+  line-height: 2;
+  color: #9094a0;
+  &__item {
+    position: relative;
+    padding-left: 24px;
+    &::before {
+      content: ">";
+      position: absolute;
+      top: 13px;
+      left: 0;
+      display: block;
+      font-weight: bold;
+      font-size: 14px;
+      font-family: inherit;
+      transform: translateY(-50%);
+    }
+  }
+}
+
+.service-banner {
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  height: 229px;
+  background: #0069ff;
+
+  &__description {
+    padding-top: 24px;
+    font-weight: bold;
+  }
+
+  &__logo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: -1;
+    display: block;
+    width: 328px;
+    transform: translate(-50px, -50%);
+    .logo-box__left,
+    .logo-box__right {
+      stroke: #3989fb;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .service {
+    padding-left: 70px;
+    padding-right: 70px;
+    font-size: 22px;
+  }
+
+  .service-parts {
+    font-size: 18px;
+    &__item {
+      &::before {
+        top: 16px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  .service-banner {
+    &__logo {
+      transform: translate(50px, -50%);
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .service {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 80px 140px;
+
+    &__header {
+      width: 100%;
+    }
+
+    &__content {
+      margin-bottom: 0;
+      width: 60%;
+    }
+
+    &__side {
+      box-sizing: border-box;
+      padding-left: 80px;
+      width: 40%;
+    }
+  }
+}

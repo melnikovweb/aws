@@ -1,0 +1,119 @@
+.glossary-letter {
+  border-bottom: 1px solid var(--blueText);
+  margin-bottom: 47px;
+  padding-bottom: 17px;
+  position: relative;
+  &:last-child {
+    border: none;
+  }
+  &-simple {
+    border-bottom: none;
+  }
+
+  &__title {
+    font-size: 96px;
+    line-height: 96px;
+    font-family: "Bebas Neue";
+    color: var(--blueText);
+    margin-bottom: 20px;
+  }
+  &__words {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__word {
+    width: 30%;
+    margin-bottom: 30px;
+    margin-right: 5%;
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+    @media (max-width: 991px) {
+      width: 100%;
+      margin-right: 0;
+    }
+
+    &-title {
+      font-size: 24px;
+      line-height: 28px;
+      color: var(--blueText);
+      margin-bottom: 20px;
+      a {
+        color: var(--blueText);
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+    &-description {
+      font-size: 18px;
+      line-height: 140%;
+    }
+  }
+  &__reset {
+    font-size: 18px;
+    line-height: 21px;
+    color: var(--blueText);
+    text-decoration: underline;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    z-index: 100;
+  }
+}
+.glossary-alphabet {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  &__letter {
+    color: var(--greyText);
+    font-size: 26px;
+    line-height: 31px;
+    margin: 0 2px;
+    cursor: pointer;
+    //&:hover,
+    &.active {
+      color: var(--blueText);
+    }
+  }
+}
+.glossary-form {
+  display: flex;
+  flex-wrap: nowrap;
+  border-bottom: 1px solid #444b5e;
+  margin-bottom: 54px;
+  &__word {
+    border: none;
+    width: 100%;
+    background: none;
+    outline: none;
+    cursor: pointer;
+    color: var(--softText);
+    padding: 10px 0;
+
+    &:-internal-autofill-selected,
+    &:focus {
+      background: none;
+      outline: none;
+    }
+  }
+  &__button {
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background: none;
+    &-icon {
+      color: var(--greyText);
+      width: 19px;
+      height: 19px;
+    }
+  }
+}
+.glossary-content {
+  position: relative;
+}
+.page-glossary__contact-us {
+  border: none;
+}

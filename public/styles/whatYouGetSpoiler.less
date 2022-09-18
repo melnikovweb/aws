@@ -1,0 +1,124 @@
+.what-you-get-spoiler {
+  margin-bottom: 60px;
+  border: 1px solid transparent;
+
+  &--open {
+    background: #1f232e;
+    border-color: #f9f9f9;
+    border-radius: 10px;
+  }
+
+  &__content {
+    display: none;
+    list-style: none;
+    padding: 0 40px 17px 40px;
+
+    &--visible {
+      display: block;
+    }
+
+    @media (max-width: 768px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__button {
+    color: #fff;
+
+    &:hover,
+    &:active,
+    &.is-active {
+      .what-you-get-spoiler__button-icon--left {
+        color: inherit;
+      }
+    }
+
+    /*&&--active {
+      border-color: transparent;
+
+      &:hover,
+      &:active,
+      &.is-active {
+        background-color: transparent;
+      }
+
+      .what-you-get-spoiler__button-icon--right {
+        padding: 4px;
+        box-sizing: border-box;
+      }
+    }*/
+
+    @media (max-width: 768px) {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+  &__button-icon {
+    color: inherit;
+    width: 24px;
+    height: 24px;
+    flex: 0 0 auto;
+
+    path[fill] {
+      fill: currentColor;
+    }
+
+    path[stroke] {
+      stroke: currentColor;
+    }
+
+    &--left {
+      color: #0069ff;
+      margin-right: 20px;
+    }
+
+    &--right {
+      margin-left: 20px;
+    }
+  }
+}
+.what-you-get-spoiler__button.what-you-get-spoiler__button--active {
+  border-color: transparent;
+
+  &:hover,
+  &:active,
+  &.is-active {
+    background-color: transparent;
+  }
+
+  .what-you-get-spoiler__button-icon--right {
+    padding: 4px;
+    box-sizing: border-box;
+  }
+}
+
+.what-you-get-spoiler-content-item {
+  font-size: 16px;
+  line-height: 180%;
+  color: #f9f9f9;
+  display: flex;
+
+  &__title {
+    font-weight: 600;
+    text-align: right;
+    width: 200px;
+    flex: 0 0 auto;
+  }
+
+  &__description {
+    font-weight: 300;
+    flex: 1 1 auto;
+    padding-left: 10px;
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+
+    &__title {
+      width: auto;
+      text-align: initial;
+    }
+  }
+}

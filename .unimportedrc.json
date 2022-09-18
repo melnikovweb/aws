@@ -1,0 +1,38 @@
+{
+  "entry": [
+    "./server.js",
+    "./pages/404.js",
+    "./pages/_app.js",
+    "./pages/company.js",
+    "./pages/contact.js",
+    "./pages/glossary.js",
+    "./pages/referral.js",
+    "./pages/services.js",
+    "./pages/index.js",
+    "./pages/design/index.js",
+    "./pages/other/managed.js",
+    "./pages/other/services.js",
+    "./pages/other/teams.js",
+    "./pages/portfolio/index.js",
+    "./pages/portfolio/[name].js",
+    "./pages/process/[[...step]].js",
+    "./pages/stack/index.js",
+    "./pages/stack/front-end.js",
+    "./pages/video/index.js",
+    "./pages/video/portfolio.js"
+  ],
+  "ignoreUnresolved": [],
+  "ignoreUnimported": [],
+  "ignoreUnused": [],
+  "moduleDirectory": ["node_modules", ""],
+  "ignorePatterns": [
+    "**/node_modules/**",
+    "**/*.stories.{js,jsx,ts,tsx}",
+    "**/*.tests.{js,jsx,ts,tsx}",
+    "**/*.test.{js,jsx,ts,tsx}",
+    "**/*.spec.{js,jsx,ts,tsx}",
+    "**/tests/**",
+    "**/__tests__/**",
+    "**/*.d.ts"
+  ]
+}

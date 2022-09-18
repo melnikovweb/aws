@@ -1,0 +1,302 @@
+.page-design {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  &__cover-img {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  &__top {
+    position: relative;
+    overflow: hidden;
+    &-content {
+      width: 880px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 93px;
+      margin-left: 165px;
+      @media (max-width: 1100px) {
+        width: auto;
+        margin-left: 40px;
+        margin-right: 40px;
+      }
+    }
+    p {
+      margin-bottom: 40px;
+      font-weight: 200;
+      font-size: 26px;
+      line-height: 31px;
+    }
+    .button {
+      margin: 0 0 30px 0;
+      font-size: 22px;
+      line-height: 26px;
+      padding: 17px 50px;
+    }
+  }
+  h1 {
+    font-family: Raleway;
+    font-size: 72px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 85px;
+    letter-spacing: 0.04em;
+    margin-bottom: 30px;
+    @media (max-width: 500px) {
+      font-size: 48px;
+      line-height: 60px;
+    }
+  }
+  &__pre-title {
+    font-size: 36px;
+    line-height: 42px;
+    color: var(--blueText);
+  }
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 30px 40px 35px;
+    @media (max-width: 678px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &-content {
+      margin-left: auto;
+      display: flex;
+      @media (max-width: 678px) {
+        margin-left: 0;
+        margin-top: 30px;
+        flex-direction: column;
+        align-items: center;
+        .menu-link {
+          margin-bottom: 15px;
+        }
+      }
+      .menu-link-contacts {
+        margin-left: 30px;
+        @media (max-width: 678px) {
+          margin: 0 auto;
+        }
+      }
+    }
+    &-tags {
+      flex: 1 1 100%;
+      margin: 30px 0 35px;
+    }
+  }
+  &__works {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 70px;
+    img {
+      width: 100%;
+    }
+  }
+  &__work {
+    width: 32%;
+    margin-bottom: 1.5%;
+    @media (max-width: 991px) {
+      width: 100%;
+    }
+
+    &-cover {
+      position: relative;
+      padding-top: 90%;
+    }
+    &-cover:hover &-info {
+      display: block;
+    }
+    &-info {
+      padding: 13px;
+      background: var(--blueText);
+      position: absolute;
+      display: none;
+      width: 100%;
+      box-sizing: border-box;
+      z-index: 5;
+      top: 0;
+
+      &-header,
+      &-footer {
+        display: flex;
+        align-items: center;
+        @media (max-width: 500px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        @media screen and (min-width: 992px) and (max-width: 1365px) {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+      &-title {
+        font-weight: bold;
+        font-size: 32px;
+        line-height: 150%;
+      }
+      &-more {
+        font-size: 18px;
+        line-height: 21px;
+        border-radius: 10px;
+        border: 2px solid #ffffff;
+        box-sizing: border-box;
+        color: #fff;
+        text-decoration: none;
+        margin-left: auto;
+        padding: 9px 44px;
+        span {
+          font-size: 13px;
+          letter-spacing: 2px;
+          vertical-align: middle;
+        }
+        @media (max-width: 500px) {
+          margin-left: 0;
+        }
+        @media screen and (min-width: 992px) and (max-width: 1365px) {
+          margin-left: 0;
+        }
+      }
+      &-desc {
+        margin-bottom: 35px;
+        margin-top: 15px;
+      }
+      &-year {
+        margin-left: auto;
+        font-weight: 300;
+        font-size: 22px;
+        line-height: 150%;
+        @media (max-width: 500px) {
+          margin-left: 0;
+        }
+        @media screen and (min-width: 992px) and (max-width: 1365px) {
+          margin-left: 0;
+        }
+      }
+      .tag {
+        color: #f2f2f2;
+        border: 1px solid #f2f2f2;
+      }
+    }
+  }
+  &__form {
+    width: 600px;
+    margin-top: 50px;
+    @media (max-width: 991px) {
+      width: auto;
+    }
+
+    .field {
+      border: none;
+      border-bottom: 2px solid #ffffff;
+      background: none;
+      border-radius: 0%;
+      padding: 10px 0px;
+
+      &::placeholder {
+        text-transform: uppercase;
+        color: var(--softText);
+      }
+    }
+    .button,
+    .button:hover {
+      border: 2px solid #ffffff;
+      color: white;
+      box-sizing: border-box;
+      border-radius: 10px;
+      margin: 50px 0 110px;
+      font-size: 22px;
+      line-height: 26px;
+      padding: 9px 20px;
+      width: 226px;
+      cursor: pointer;
+    }
+    .form-box {
+      padding-bottom: 60px;
+    }
+  }
+  &__banner {
+    width: 550px;
+    margin-right: 100px;
+    margin-left: 50px;
+    @media (max-width: 1240px) {
+      margin-right: 0px;
+    }
+    @media (max-width: 991px) {
+      margin-left: 0px;
+      width: auto;
+    }
+  }
+  &__testimonials {
+    margin-bottom: 70px;
+  }
+  &__contacts {
+    padding: 60px 100px;
+    @media (max-width: 1240px) {
+      padding: 30px 30px;
+    }
+    h2 {
+      font-weight: bold;
+      font-size: 36px;
+      line-height: 140%;
+      margin-bottom: 100px;
+    }
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      @media (max-width: 991px) {
+        flex-direction: column;
+      }
+    }
+  }
+}
+.contacts-banner {
+  &-logo {
+    margin-bottom: 35px;
+    width: 100%;
+    max-width: 488px;
+  }
+  &-address {
+    font-weight: 300;
+    font-size: 22px;
+    line-height: 36px;
+    margin-bottom: 36px;
+  }
+  &-link {
+    color: var(--softText);
+    text-decoration: none;
+    display: block;
+    &__text {
+      font-weight: bold;
+      font-size: 32px;
+      line-height: 42px;
+    }
+    &__icon {
+      width: 38px;
+      height: 26px;
+      margin-right: 34px;
+    }
+    &__site {
+      margin-top: 95px;
+      display: block;
+      text-decoration: underline;
+      color: var(--softText);
+      font-weight: 500;
+      font-size: 22px;
+      line-height: 36px;
+    }
+  }
+  &-phone-text {
+    margin-left: 71px;
+  }
+}
+
+.banner-promo {
+  background-color: #0142e9;
+  background-size: contain;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}

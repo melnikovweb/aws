@@ -1,0 +1,333 @@
+.field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 16px 24px;
+  font: inherit;
+  font-size: 22px;
+  color: #f9f9f9;
+  border: 1px solid #444b5e;
+  background-color: #444b5e;
+  border-radius: 10px;
+  @media (max-width: 960px) {
+    padding: 12px 24px;
+    font-size: 20px;
+  }
+
+  &:focus {
+    border-color: #f9f9f9;
+  }
+
+  &--small {
+    font-size: 18px;
+    line-height: 21px;
+  }
+  &--select {
+    appearance: none;
+    background: #444b5e
+      url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAFCAYAAAB4ka1VAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABHSURBVHgBbY1RCQAgDESndUygNYQlMID9jCMYwALzFD+mbHBjvDt2TkQaEQWyp3usCk3D3CyfC18iND6lJw7Ayixm4Q2xZgt11TKKP/0IKQAAAABJRU5ErkJggg==")
+      no-repeat calc(100% - 25px) center;
+    &::-ms-expand {
+      display: none;
+    }
+  }
+}
+
+textarea {
+  resize: none;
+  height: 240px;
+}
+.input-hidden {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  opacity: 0;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+  }
+
+  &--disabled {
+    color: #9094a0 !important;
+
+    &:hover,
+    &:active {
+      cursor: default;
+    }
+  }
+
+  &__input {
+    width: inherit;
+    height: inherit;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__icon {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    *[fill] {
+      fill: currentColor;
+    }
+
+    *[stroke] {
+      stroke: currentColor;
+    }
+  }
+}
+.styled-checkbox {
+  position: absolute;
+  z-index: -1;
+  opacity: 0;
+
+  + label {
+    display: inline-flex;
+    align-items: center;
+    user-select: none;
+    position: relative;
+    color: var(--greyText);
+    cursor: pointer;
+    font-size: 18px;
+
+    &::before {
+      content: "";
+      display: inline-block;
+      width: 1em;
+      height: 1em;
+      flex-shrink: 0;
+      flex-grow: 0;
+      border: 1px solid var(--blueText);
+      border-radius: 5px;
+      margin-right: 0.5em;
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: 50% 50%;
+    }
+  }
+  &:checked + label {
+    color: var(--softText);
+  }
+
+  &:checked + label::after {
+    content: "";
+    position: absolute;
+    left: 5px;
+    background: #0069ff;
+    width: 3px;
+    height: 3px;
+    box-shadow: 2px 0 0 #0069ff, 4px 0 0 #0069ff, 4px -2px 0 #0069ff,
+      4px -4px 0 #0069ff, 4px -6px 0 #0069ff, 4px -8px 0 #0069ff;
+    transform: rotate(45deg);
+  }
+}
+.cmn-toggle {
+  position: absolute;
+  margin-left: -9999px;
+  visibility: hidden;
+
+  + label {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    outline: none;
+    user-select: none;
+  }
+
+  &-round + label {
+    padding: 2px;
+    width: 40px;
+    height: 18px;
+    margin: 0 12px;
+    border-radius: 20px;
+    transition: background 0.4s;
+  }
+
+  &-round + label:before,
+  &-round + label:after {
+    display: block;
+    position: absolute;
+    content: "";
+  }
+
+  &-round + label:before {
+    top: 2px;
+    left: 0px;
+    bottom: 2px;
+    right: 2px;
+    background-color: #444b5e;
+    border-radius: 20px;
+    transition: background 0.4s;
+  }
+
+  &-round + label:after {
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    width: 14px;
+    background-color: #fff;
+    border-radius: 14px;
+    transition: margin 0.4s, background 0.4s;
+  }
+
+  &-round:checked + label:before {
+    background-color: var(--blueText);
+  }
+
+  &-round:checked + label:after {
+    margin-left: 17px;
+  }
+}
+.upload-file {
+  color: var(--greyText);
+  width: 100%;
+
+  &-field {
+    border: 1px dashed var(--blueText);
+    border-radius: 10px;
+    padding: 16px 24px;
+    @media (max-width: 960px) {
+      padding: 12px 24px;
+    }
+
+    label {
+      color: var(--blueText);
+      text-decoration: underline;
+    }
+    input {
+      position: absolute;
+      outline: 0;
+      opacity: 0;
+      display: block;
+    }
+  }
+  &-desc {
+    color: var(--greyText);
+    font-size: 12px;
+    line-height: 14px;
+    padding-top: 8px;
+  }
+}
+.questions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+.question {
+  width: 238px;
+  padding: 30px;
+  border: 1px solid #0069ff;
+  border-radius: 10px;
+  background: #1f232e;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  text-align: center;
+  @media (max-width: 540px) {
+    width: 100%;
+    margin: 10px 0px 10px 00px;
+  }
+}
+.range {
+  margin-bottom: 20px;
+  margin-top: 35px;
+
+  span:nth-child(4),
+  span:nth-last-child(3) {
+    //remove first and last marks
+    display: none;
+  }
+  .MuiSlider {
+    &-rail {
+      height: 10px;
+      background: #1f232e;
+      border-radius: 10px;
+      opacity: 1;
+    }
+    &-track {
+      background: var(--blueText);
+      height: 10px;
+      border-radius: 10px;
+    }
+    &-thumb {
+      background: var(--blueText);
+      border: none;
+      width: 20px;
+      height: 20px;
+      margin-left: -10px;
+      &:hover {
+        box-shadow: none;
+      }
+    }
+    &-valueLabel {
+      color: var(--softText);
+      font-size: 12px;
+      white-space: nowrap;
+      line-height: 150%;
+      border-bottom: 1px solid var(--greyText);
+      position: relative;
+      padding-bottom: 3px;
+      left: calc(-50% + 10px);
+
+      span {
+        display: initial;
+        background: transparent;
+      }
+
+      span span {
+        color: var(--softText);
+        font: 300 12px/1.5 "Raleway", sans-serif;
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: calc(50% - 10px);
+        bottom: -20px;
+        border: 10px solid transparent;
+        border-top: 10px solid var(--greyText);
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        left: calc(50% - 10px);
+        bottom: -19px;
+        border: 10px solid transparent;
+        border-top: 10px solid #191c25;
+      }
+    }
+    &-mark {
+      background: #444b5e;
+      width: 1px;
+      height: 40px;
+      top: 0;
+    }
+    &-markLabel {
+      color: var(--softText);
+      margin-top: 22px;
+      font-size: 12px;
+    }
+  }
+}

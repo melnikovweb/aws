@@ -1,0 +1,33 @@
+@import "processWorkflow";
+@import "whatYouGet";
+@import "whatYouGetSpoiler";
+
+.page-process {
+  &__tabs {
+    margin-top: 110px;
+
+    &.tabs--compact {
+      margin-top: 0;
+    }
+  }
+
+  &__what-you-get {
+    background-color: #191c25;
+  }
+
+  &__promo {
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 768px) {
+    &__tabs {
+      margin-top: 20px;
+    }
+  }
+  &__request-experts {
+    .request-experts-item__icon {
+      height: 60px;
+      width: 61px;
+    }
+  }
+}

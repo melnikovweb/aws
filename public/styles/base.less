@@ -1,0 +1,171 @@
+* {
+  padding: 0;
+  margin: 0;
+  outline: none;
+}
+
+html {
+  height: 100%;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+
+  font: 300 12px/1.2 "Raleway", sans-serif;
+  color: #f9f9f9;
+  letter-spacing: 0.04em;
+  background-color: var(--mainBg);
+  font-weight: 300;
+  &.modal-open {
+    overflow: hidden;
+  }
+}
+
+h1,
+h2 {
+  font-weight: normal;
+  font-size: 26px;
+  text-transform: uppercase;
+}
+
+h3 {
+  font-weight: 200;
+  font-size: 20px;
+}
+
+h4 {
+  font-weight: normal;
+  font-size: 18px;
+}
+
+h5 {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+h6 {
+  font-weight: 300;
+  font-size: 14px;
+}
+.link {
+  color: var(--blueText);
+}
+.highlight {
+  font-weight: 600;
+  color: #0069ff;
+}
+
+.app {
+  overflow: hidden;
+  flex-grow: 1;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.header,
+.footer {
+  flex-shrink: 0;
+}
+
+.content {
+  flex-grow: 1;
+
+  box-sizing: border-box;
+  padding-top: var(--headerHeight);
+}
+
+.cover-section {
+  // TODO - need fix padding conflict with .section
+  padding: 60px 80px;
+  background: #191c25;
+  @media (max-width: 767px) {
+    padding: 60px 30px;
+  }
+  &-footer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &.buttons {
+      .button {
+        margin: 10px 30px;
+      }
+    }
+  }
+}
+.section-box {
+  margin-bottom: 60px !important;
+}
+
+.logo-box {
+  position: relative;
+  display: block;
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 103%;
+  }
+  &__left,
+  &__right {
+    position: absolute;
+    display: block;
+    width: 55%;
+    height: auto;
+    fill: none;
+    stroke-width: 1px;
+  }
+
+  &__left {
+    top: 0;
+    left: 0;
+    stroke: url(#LogoLeft_svg__logoLeftGradient);
+  }
+
+  &__right {
+    bottom: 0;
+    right: 0;
+    stroke: url(#LogoRight_svg__logoRightGradient);
+  }
+}
+
+@media (min-width: 576px) {
+  h1,
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 26px;
+  }
+
+  h4 {
+    font-size: 22px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 992px) {
+  body {
+    &.modal-open {
+      overflow: auto;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}

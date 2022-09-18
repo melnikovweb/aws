@@ -1,0 +1,131 @@
+.button {
+  -webkit-appearance: none;
+
+  cursor: pointer;
+  white-space: nowrap;
+
+  box-sizing: border-box;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto;
+  min-height: 40px;
+  padding: 0 30px;
+
+  font: inherit;
+  font-weight: normal;
+  font-size: 18px;
+  text-decoration: none;
+  text-align: center;
+  color: #ffffff;
+  letter-spacing: 0.04em;
+
+  border-radius: 10px;
+  border: 2px solid #0069ff;
+  background-color: #0069ff;
+
+  transition: color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+    background-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+    border-color 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  &:hover,
+  &:active,
+  &.is-active {
+    color: #ffffff;
+    border-color: #0142e9;
+    background-color: #0142e9;
+  }
+
+  &--empty {
+    color: #6a7184;
+    background-color: transparent;
+
+    &:hover,
+    &:active,
+    &.is-active {
+      color: #f9f9f9;
+      border-color: #0069ff;
+      background-color: #0069ff;
+    }
+  }
+
+  &--big {
+    padding: 0 60px;
+    min-height: 60px;
+    font-size: 22px;
+    @media (max-width: 960px) {
+      padding: 0 45px;
+      min-height: 50px;
+      font-size: 20px;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  &--clear {
+    border: 0;
+    color: #ffffff;
+  }
+  &--mini {
+    border-radius: 20px;
+    padding: 8px 24px 6px 24px;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 14px;
+    min-height: auto;
+  }
+  &--orange {
+    background: var(--orangeColor);
+    border: 2px solid var(--orangeColor);
+    &:hover {
+      background: #dc4403;
+      border: 2px solid #dc4403;
+    }
+  }
+
+  &:disabled,
+  &--disabled {
+    &,
+    &:hover,
+    &:active,
+    &.is-active {
+      cursor: default;
+
+      color: #444b5e;
+
+      border: 1px solid #444b5e;
+      background-color: transparent;
+    }
+    &.loading {
+      border-color: #0069ff;
+      background-color: #0069ff;
+      color: #ffffff;
+      &:hover {
+        border-color: #0069ff;
+        background-color: #0069ff;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+.button-close {
+  width: 18px;
+  height: 18px;
+  color: #6a7184;
+
+  path {
+    fill: currentColor;
+  }
+
+  &:hover,
+  &:active {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+}
